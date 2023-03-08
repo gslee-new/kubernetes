@@ -11,26 +11,19 @@
 
 쿠버네티스 노드의 역할은 마스터와 워커로 나뉜다.
 
-##### 포드 생성
+##### 명령어
 ```
-kubectl apply -f nginx-pod.xml
+#포드 생성
+kubectl apply -f nginx-pod.yml
+#포드 목록 조회
+kubectl get pods
+#오브젝트 상세조회
+kubectl describe <object> <object-name>
+kubectl describe pods my-nginx-pod
 ```
 
 
-1. yml 파일 생성
-apiVersion: v1
-kind: Pod
-metadata:
-  name: my-nginx-pod
-spec:
-  containers:
-  - name: my-nginx-container
-    image: nginx:latest
-    ports:
-    - containerPort: 80
-      protocol: TCP
-2. kubectl apply -f nginx-pod.yml 
-- 새로운 포드 생성
+
 3. kubectl get pods 
 - object 목록 확인
 4. kubectl describe pods <pods 이름>
