@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webserver
+  name: hydra-client
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      name: hydra-client 
+      labels:
+        app: webserver
+    spec:
+      containers:
+      - name: hydra-client-img
+        image: hydra-client-img
+        imagePullPolicy: Never
+        
