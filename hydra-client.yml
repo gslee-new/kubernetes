@@ -19,4 +19,4 @@ spec:
       - name: hydra-client-img
         image: hydra-client-img
         imagePullPolicy: Never
-        
+  

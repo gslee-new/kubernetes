@@ -1,0 +1,21 @@
+version: "0.1"
+
+services:
+  hydra:
+    image: jaegertracing/all-in-one:1.19.2
+    ports:
+      - "16686:16686" # The UI port
+    environment:
+      - TRACING_PROVIDER=jaeger
+      ### Jaeger ###
+      - TRACING_PROVIDERS_JAEGER_SAMPLING_SERVER_URL=http://r:5778/sampling
+      - TRACING_PROVIDERS_JAEGER_LOCAL_AGENT_ADDRESS=jaeger:6831
+      - TRACING_PROVIDERS_JAEGER_SAMPLING_TYPE=const
+      - TRACING_PROVIDERS_JAEGER_SAMPLING_VALUE=1
+networks:
+  default:
+    external:
+      name: oauth_net
+
+
+    

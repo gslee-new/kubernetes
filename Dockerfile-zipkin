@@ -1,0 +1,4 @@
+FROM openzipkin/zipkin:2
+LABEL description="zipkin"
+EXPOSE 9411
+ENV STORAGE_TYPE=mem

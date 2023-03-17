@@ -1,0 +1,5 @@
+FROM mysql:8.0.26
+LABEL description="mysql 8.0"
+EXPOSE 3306
+ENV MYSQL_ROOT_PASSWORD=secret
+
