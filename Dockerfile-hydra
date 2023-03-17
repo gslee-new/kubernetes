@@ -1,5 +1,9 @@
-FROM mysql:8.0.26
-LABEL description="mysql 8.0"
-EXPOSE 3306
-ENV MYSQL_ROOT_PASSWORD=secret
-
+FROM oryd/hydra:v2.0.3
+LABEL description="hydra server"
+EXPOSE 4444 4445
+ADD [ "./hydra", "/etc/config/hydra" ]
+ENV URLS_LOGIN=http://172.17.14.24:8080/login
+ENV URLS_CONSENT=http://172.17.14.24:8080/consent
+ENV URLS_LOGOUT=http://172.17.14.24:8080/logout
+ENTRYPOINT [ "hydra" ]
+CMD [ "serve","-c","/etc/config/hydra/hydra.yml","all","--dev" ]

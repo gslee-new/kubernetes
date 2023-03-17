@@ -1,0 +1,21 @@
+serve:
+  cookies:
+    same_site_mode: Lax
+    #domain: daekyo.com
+
+
+#Sets the data source name
+dsn: "mysql://root:secret@tcp(172.19.0.3:3306)/mysql?max_conns=20&max_idle_conns=4"
+
+urls:
+  self:
+    issuer: http://172.17.14.24:4444
+  consent: http://127.0.0.1:3000/consent
+  login: http://127.0.0.1:3000/login
+  logout: http://127.0.0.1:3000/logout
+
+
+secrets:
+  system:
+    - youReallyNeedToChangeThis
+
